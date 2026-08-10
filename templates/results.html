@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block title %}Tests: Home{% endblock %}
+
+{% block body %}
+<h1>Test Results</h1>
+<p>Your score: {{ score }}/{{ total }}</p>
+<h2>Question Details:</h2>
+<ul>
+    {% for r in results %}
+    <!-- Dynamically swap class names based on correctness -->
+    <div class="result-card {{ 'correct' if r.is_correct else 'incorrect' }}">
+        <p><strong>Question:</strong> {{ r.question }}</p>
+        <p>Your Answer: <strong>{{ r.user_ans }}</strong></p>
+        {% if r.is_correct %}
+        <p>✔ Correct!</p>
+        {% else %}
+        <p>✘ Incorrect. The correct answer was <strong>{{ r.correct_ans }}</strong>.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</ul>
+<style>
+    /* Modern Primary Buttons */
+    button[type="submit"],
+    input[type="submit"] {
+        display: inline-block;
+        width: 100%;
+        background-color: #2563eb;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    button[type="submit"]:hover,
+    input[type="submit"]:hover {
+        background-color: #1d4ed8;
+    }
+
+    /* Results Cards */
+    .result-card {
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-left: 5px solid #ccc;
+    }
+
+    .result-card.correct {
+        background-color: #f0fdf4;
+        border-color: #16a34a;
+        color: #14532d;
+    }
+
+    .result-card.incorrect {
+        background-color: #fef2f2;
+        border-color: #dc2626;
+        color: #7f1d1d;
+    }
+</style>
+{% endblock %}

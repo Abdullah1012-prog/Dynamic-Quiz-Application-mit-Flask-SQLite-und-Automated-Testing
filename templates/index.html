@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Tests: Home{% endblock %}
+
+{% block body %}
+{% if error %}
+<h3 style="color: red;">{{ error }}</h3>
+{% endif %}
+<h1>Tests</h1>
+<p>Welcome to the Tests page!</p>
+<form method="POST">
+    <label for="questionType">Select a question type:</label>
+    <select name="questionType" id="questionType" required>
+        <!-- disabled makes it unclickable; selected makes it the default view -->
+        <option value="" disabled selected>--Please choose an option--</option>
+        <option value="computer">Computer</option>
+        <option value="math">Math</option>
+        <option value="physics">Physics</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

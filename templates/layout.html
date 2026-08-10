@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+        <style>
+            /* Base Page Settings */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f6f9;
+                color: #333;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+            }
+
+            /* App Main Container */
+            main {
+                max-width: 650px;
+                margin: 40px auto;
+                background: #ffffff;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+
+            /* Headings */
+            h1 {
+                color: #2c3e50;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #ecf0f1;
+                padding-bottom: 10px;
+            }
+
+            /* Custom Select Dropdowns */
+            select {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccd1d9;
+                border-radius: 6px;
+                background-color: #fafbfc;
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main class="background">
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+
+</html>
